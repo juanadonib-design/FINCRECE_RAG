@@ -4,7 +4,7 @@
 
 **FinCrece** es un chatbot basado en la técnica de **Retrieval-Augmented Generation (RAG)** que responde preguntas del usuario utilizando exclusivamente el contenido de un conjunto de documentos PDF previamente indexados. En lugar de depender únicamente del conocimiento general del modelo de lenguaje, el sistema recupera los fragmentos de texto más relevantes de los documentos fuente y los usa como contexto para generar respuestas precisas y trazables (con cita de la fuente).
 
-En este caso, los documentos indexados corresponden al **Manual de Políticas y Procedimientos de FinCrece**, una entidad financiera ficticia/de práctica, compuesto por 5 capítulos:
+En este caso, los documentos indexados corresponden al **Manual de Políticas y Procedimientos de FinCrece**, una entidad financiera, compuesto por 5 capítulos:
 
 1. **Política de Privacidad y Protección de Datos Crediticios**
 2. **Términos y Condiciones del Financiamiento**
