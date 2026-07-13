@@ -16,14 +16,14 @@ st.set_page_config(
 st.markdown("""
 <style>
     :root {
-        --fc-accent: #0B6E4F;        /* verde bosque - crecimiento */
-        --fc-accent-dark: #084d38;
-        --fc-gold: #C9932E;          /* dorado - dinero, detalle de marca */
-        --fc-text: #201F1C;          /* grafito cálido, no negro puro */
-        --fc-muted: #6B6459;
-        --fc-border: #E7E2D8;        /* borde cálido, no gris frío */
-        --fc-bg: #FBFAF7;            /* blanco cálido, no blanco puro */
-        --fc-sidebar-bg: #F3F1EA;
+        --fc-accent: #2FBF80;        /* verde - crecimiento (más brillante para fondo oscuro) */
+        --fc-accent-dark: #0B6E4F;
+        --fc-gold: #D9A93B;          /* dorado - dinero, detalle de marca */
+        --fc-text: #EDEBE4;          /* texto claro cálido, no blanco puro */
+        --fc-muted: #9C9488;
+        --fc-border: #2A2F2B;        /* borde oscuro cálido */
+        --fc-bg: #14181A;            /* fondo oscuro, no negro puro */
+        --fc-sidebar-bg: #1B201D;
     }
 
     body, .stApp { background: var(--fc-bg); }
@@ -82,7 +82,7 @@ st.markdown("""
     }
     /* Botón "Nuevo chat" resaltado */
     [data-testid="stSidebar"] button[kind="primary"] {
-        background: white !important;
+        background: var(--fc-sidebar-bg) !important;
         color: var(--fc-text) !important;
         border: 1px solid var(--fc-border) !important;
         font-weight: 500 !important;
@@ -103,10 +103,10 @@ st.markdown("""
     [data-testid="stChatMessage"] {
         background: transparent;
         padding: 0.85rem 0;
-        border-bottom: 1px solid #f3f4f6;
+        border-bottom: 1px solid var(--fc-border);
     }
-    [data-testid="stChatMessageAvatarUser"] { background: var(--fc-text) !important; }
-    [data-testid="stChatMessageAvatarAssistant"] { background: var(--fc-accent) !important; }
+    [data-testid="stChatMessageAvatarUser"] { background: #3A4038 !important; }
+    [data-testid="stChatMessageAvatarAssistant"] { background: var(--fc-accent-dark) !important; }
 
     [data-testid="stChatInput"] {
         border-radius: 26px;
