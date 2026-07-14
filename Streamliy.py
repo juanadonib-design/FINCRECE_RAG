@@ -116,6 +116,14 @@ st.markdown("""
     [data-testid="stChatMessageAvatarUser"] { background: #3A4038 !important; }
     [data-testid="stChatMessageAvatarAssistant"] { background: var(--fc-accent-dark) !important; }
 
+    /* Contenedor flotante inferior donde vive el chat input (elemento aparte de la caja) */
+    [data-testid="stBottomBlockContainer"],
+    [data-testid="stBottom"],
+    .stChatFloatingInputContainer,
+    [data-testid="stChatInputContainer"] {
+        background: var(--fc-bg) !important;
+    }
+
     [data-testid="stChatInput"] {
         background: var(--fc-sidebar-bg) !important;
         border-radius: 26px;
@@ -123,7 +131,9 @@ st.markdown("""
         box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     }
     [data-testid="stChatInput"]:focus-within { border-color: var(--fc-accent); }
-    [data-testid="stChatInput"] textarea {
+    [data-testid="stChatInput"] textarea,
+    [data-baseweb="textarea"],
+    [data-baseweb="base-input"] {
         background: transparent !important;
         color: var(--fc-text) !important;
     }
