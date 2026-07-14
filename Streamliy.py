@@ -69,17 +69,30 @@ st.markdown("""
     .fc-wordmark span { color: var(--fc-accent); }
 
     [data-testid="stSidebar"] button {
-        background: transparent !important;
+        background: linear-gradient(135deg, rgba(18,128,92,0.10), rgba(201,154,58,0.06)) !important;
         color: var(--fc-text) !important;
         border: 1px solid transparent !important;
         text-align: left !important;
         justify-content: flex-start !important;
         border-radius: 8px !important;
         font-size: 0.88rem !important;
+        transition: background 0.15s ease, border-color 0.15s ease;
     }
     [data-testid="stSidebar"] button:hover {
-        background: rgba(255,255,255,0.06) !important;
-        border-color: var(--fc-border) !important;
+        background: linear-gradient(135deg, rgba(18,128,92,0.22), rgba(201,154,58,0.14)) !important;
+        border-color: var(--fc-gold) !important;
+    }
+    /* Etiqueta "Chats anteriores" con texto en degradado */
+    .fc-section-label {
+        background: var(--fc-gradient-accent);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        padding: 0 0.25rem;
     }
     /* Indicador de chat activo (punto dorado, en vez de emoji) */
     .fc-active-dot {
@@ -221,7 +234,7 @@ with st.sidebar:
     st.button("＋ Nuevo chat", use_container_width=True, type="primary", on_click=create_new_chat)
 
     st.markdown("<div style='height: 0.75rem'></div>", unsafe_allow_html=True)
-    st.caption("Chats anteriores")
+    st.markdown('<div class="fc-section-label">Chats anteriores</div>', unsafe_allow_html=True)
 
     # Mostrar chats más recientes primero
     for cid in reversed(list(st.session_state.chats.keys())):
