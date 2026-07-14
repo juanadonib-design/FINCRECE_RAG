@@ -16,17 +16,24 @@ st.set_page_config(
 st.markdown("""
 <style>
     :root {
-        --fc-accent: #2FBF80;        /* verde - crecimiento (más brillante para fondo oscuro) */
+        --fc-accent: #34D399;         /* verde brillante - crecimiento */
         --fc-accent-dark: #0B6E4F;
-        --fc-gold: #D9A93B;          /* dorado - dinero, detalle de marca */
-        --fc-text: #EDEBE4;          /* texto claro cálido, no blanco puro */
-        --fc-muted: #9C9488;
-        --fc-border: #2A2F2B;        /* borde oscuro cálido */
-        --fc-bg: #14181A;            /* fondo oscuro, no negro puro */
-        --fc-sidebar-bg: #1B201D;
+        --fc-gold: #E8B84B;           /* dorado - dinero, detalle de marca */
+        --fc-gold-dark: #A6791F;
+        --fc-text: #F1EFE8;           /* texto claro cálido */
+        --fc-muted: #A29C8E;
+        --fc-border: #33392F;         /* borde con tinte verdoso */
+        --fc-bg: #0E1410;             /* base oscura del degradado principal */
+        --fc-sidebar-bg: #0A0F0C;
+
+        --fc-gradient-main: linear-gradient(160deg, #12251C 0%, #0E1410 45%, #0B0F0C 100%);
+        --fc-gradient-sidebar: linear-gradient(200deg, #0F1B14 0%, #090D0A 100%);
+        --fc-gradient-accent: linear-gradient(135deg, var(--fc-accent-dark), var(--fc-gold));
+        --fc-gradient-btn: linear-gradient(135deg, #12805C, #C99A3A);
     }
 
-    body, .stApp { background: var(--fc-bg); }
+    body, .stApp { background: var(--fc-gradient-main) !important; }
+    [data-testid*="Bottom"] { background: var(--fc-gradient-main) !important; }
 
     #MainMenu, footer {visibility: hidden; height: 0;}
     header[data-testid="stHeader"] {background: transparent;}
@@ -39,7 +46,7 @@ st.markdown("""
 
     /* ---- Sidebar estilo ChatGPT ---- */
     [data-testid="stSidebar"] {
-        background: var(--fc-sidebar-bg);
+        background: var(--fc-gradient-sidebar) !important;
         border-right: 1px solid var(--fc-border);
     }
     [data-testid="stSidebar"] > div {padding-top: 1rem;}
@@ -54,7 +61,7 @@ st.markdown("""
     }
     .fc-logo-icon {
         width: 28px; height: 28px; border-radius: 8px;
-        background: linear-gradient(135deg, var(--fc-accent-dark), var(--fc-gold));
+        background: var(--fc-gradient-accent);
         display: flex; align-items: center; justify-content: center;
         flex-shrink: 0;
     }
@@ -89,15 +96,13 @@ st.markdown("""
     }
     /* Botón "Nuevo chat" resaltado */
     [data-testid="stSidebar"] button[kind="primary"] {
-        background: var(--fc-sidebar-bg) !important;
-        color: var(--fc-text) !important;
-        border: 1px solid var(--fc-border) !important;
-        font-weight: 500 !important;
+        background: var(--fc-gradient-accent) !important;
+        color: #08110C !important;
+        border: 1px solid var(--fc-gold) !important;
+        font-weight: 600 !important;
     }
     [data-testid="stSidebar"] button[kind="primary"]:hover {
-        border-color: var(--fc-accent) !important;
-        color: var(--fc-accent) !important;
-        background: rgba(47,191,128,0.08) !important;
+        filter: brightness(1.1);
     }
 
     /* Header principal (logo centrado, solo visible cuando no hay sidebar visible en mobile) */
@@ -114,20 +119,15 @@ st.markdown("""
         border-bottom: 1px solid var(--fc-border);
     }
     [data-testid="stChatMessageAvatarUser"] { background: #3A4038 !important; }
-    [data-testid="stChatMessageAvatarAssistant"] { background: var(--fc-accent-dark) !important; }
-
-    /* Contenedor flotante inferior donde vive el chat input (cualquier variante de testid) */
-    [data-testid*="Bottom"] {
-        background: var(--fc-bg) !important;
-    }
+    [data-testid="stChatMessageAvatarAssistant"] { background: var(--fc-gradient-accent) !important; }
 
     [data-testid="stChatInput"] {
         background: var(--fc-sidebar-bg) !important;
         border-radius: 26px;
         border: 1px solid var(--fc-border);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.25);
+        box-shadow: 0 0 0 1px rgba(232,184,75,0.08), 0 4px 18px rgba(0,0,0,0.35);
     }
-    [data-testid="stChatInput"]:focus-within { border-color: var(--fc-accent); }
+    [data-testid="stChatInput"]:focus-within { border-color: var(--fc-gold); }
     /* Forzar transparencia en TODOS los divs internos, para que se vea el fondo del contenedor padre */
     [data-testid="stChatInput"] div {
         background: transparent !important;
@@ -143,10 +143,10 @@ st.markdown("""
         opacity: 1 !important;
     }
     [data-testid="stChatInput"] button {
-        background: var(--fc-accent-dark) !important;
+        background: var(--fc-gradient-btn) !important;
     }
     [data-testid="stChatInput"] button svg {
-        fill: white !important;
+        fill: #08110C !important;
     }
 
     .fc-main-logo {
