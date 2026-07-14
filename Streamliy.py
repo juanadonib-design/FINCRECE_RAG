@@ -62,10 +62,17 @@ st.markdown("""
     .fc-wordmark span { color: var(--fc-accent); }
 
     [data-testid="stSidebar"] button {
+        background: transparent !important;
+        color: var(--fc-text) !important;
+        border: 1px solid transparent !important;
         text-align: left !important;
         justify-content: flex-start !important;
         border-radius: 8px !important;
         font-size: 0.88rem !important;
+    }
+    [data-testid="stSidebar"] button:hover {
+        background: rgba(255,255,255,0.06) !important;
+        border-color: var(--fc-border) !important;
     }
     /* Indicador de chat activo (punto dorado, en vez de emoji) */
     .fc-active-dot {
@@ -90,6 +97,7 @@ st.markdown("""
     [data-testid="stSidebar"] button[kind="primary"]:hover {
         border-color: var(--fc-accent) !important;
         color: var(--fc-accent) !important;
+        background: rgba(47,191,128,0.08) !important;
     }
 
     /* Header principal (logo centrado, solo visible cuando no hay sidebar visible en mobile) */
@@ -109,11 +117,26 @@ st.markdown("""
     [data-testid="stChatMessageAvatarAssistant"] { background: var(--fc-accent-dark) !important; }
 
     [data-testid="stChatInput"] {
+        background: var(--fc-sidebar-bg) !important;
         border-radius: 26px;
         border: 1px solid var(--fc-border);
-        box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+        box-shadow: 0 2px 10px rgba(0,0,0,0.25);
     }
     [data-testid="stChatInput"]:focus-within { border-color: var(--fc-accent); }
+    [data-testid="stChatInput"] textarea {
+        background: transparent !important;
+        color: var(--fc-text) !important;
+    }
+    [data-testid="stChatInput"] textarea::placeholder {
+        color: var(--fc-muted) !important;
+        opacity: 1 !important;
+    }
+    [data-testid="stChatInput"] button {
+        background: var(--fc-accent-dark) !important;
+    }
+    [data-testid="stChatInput"] button svg {
+        fill: white !important;
+    }
 
     .fc-main-logo {
         display: flex; align-items: center; justify-content: center; gap: 10px;
